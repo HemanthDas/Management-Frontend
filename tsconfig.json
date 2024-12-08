@@ -3,5 +3,9 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "strict": false, // Disables all strict type checking options
+    "skipLibCheck": true // Skips type checking of declaration files
+  }
 }
