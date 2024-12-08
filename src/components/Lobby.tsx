@@ -102,18 +102,33 @@ function Lobby() {
           <p>{error}</p>
         </div>
       )}
-      <ul className="list-disc list-inside w-full max-w-md bg-gray-800 rounded-lg p-4 mb-6">
-        {players.map((player) => (
-          <li
-            key={player.id + "1" + player.name}
-            className="py-2 border-b border-gray-600"
-          >
-            <span className="font-medium">{player.name}</span> (Level:{" "}
-            <span className="text-yellow-400">{player.level}</span>)
-          </li>
-        ))}
-      </ul>
-      <div className="flex gap-4">
+      <div className="w-full max-w-md">
+        <h2 className="text-xl font-semibold mb-2">Players</h2>
+        <ul className="list-disc list-inside bg-gray-800 rounded-lg p-4 mb-4">
+          {players.map((player) => (
+            <li
+              key={player.id}
+              className="py-2 border-b border-gray-600 flex justify-between"
+            >
+              <span className="font-medium">{player.name}</span>
+              <span className="text-yellow-400">{player.level}</span>
+            </li>
+          ))}
+        </ul>
+        <h2 className="text-xl font-semibold mb-2">Spectators</h2>
+        <ul className="list-disc list-inside bg-gray-800 rounded-lg p-4">
+          {spectators.map((spectator) => (
+            <li
+              key={spectator.name + "dd"}
+              className="py-2 border-b border-gray-600"
+            >
+              {spectator.name}{" "}
+              <span className="text-gray-400">(Spectator)</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="flex gap-4 mt-6">
         {isHost && (
           <button
             onClick={startGame}
